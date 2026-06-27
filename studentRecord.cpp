@@ -9,22 +9,22 @@ class StudentRecord {
 		double gpa;
 	
 	public:
-		StudentRecord(string stdName, double stdGpa, int stdAge) {
+		StudentRecord(string stdName, int stdAge, double stdGpa) {
 			 name = stdName;
-			 gpa = stdGpa;
 			 age = stdAge;
+			 gpa = stdGpa;
 		}
 	
-	void setGpa(double newGpa) {
-		if (newGpa >= 0 && newGpa <= 4) gpa = newGpa;
+	string getName() const {
+		return name;
 	}
 	
 	void setAge(int newAge) {
 		if (newAge >= 0 && newAge <= 120) age = newAge;
 	}
 	
-	string getName() const {
-		return name;
+	void setGpa(double newGpa) {
+		if (newGpa >= 0 && newGpa <= 4) gpa = newGpa;
 	}
 	
 	int getAge() const {
@@ -38,11 +38,14 @@ class StudentRecord {
 
 int main() {
 	
-	StudentRecord studentOne("Toyse", 20, 3.4);
+	StudentRecord studentOne("Toyse", 20, 5.4);
+	studentOne.getName();
 	studentOne.getAge();
 	studentOne.getGpa();
 	
-	cout << "Name: " << studentOne.getName() << " Age: " << studentOne.getAge() << " Gpa: " << studentOne.getGpa();
+	cout << "Name: " << studentOne.getName() << endl;
+	cout << "Age: " << studentOne.getAge() << endl;
+	cout << "Gpa: " << studentOne.getGpa() << endl;
 	
 	return 0;
 	
