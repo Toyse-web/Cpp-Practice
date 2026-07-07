@@ -1,52 +1,48 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 class StudentRecord {
-	private:
-		string name;
-		int age;
-		double gpa;
+	private: 
+	string stdName;
+	int stdAge;
+	double stdGpa;
 	
-	public:
-		StudentRecord(string stdName, int stdAge, double stdGpa) {
-			 name = stdName;
-			 age = stdAge;
-			 gpa = stdGpa;
-		}
+	public: StudentRecord(string name, int age, double gpa){
+		stdName = name;
+		setAge(age);
+		setGpa(gpa);
+	}
+	
+	void setAge(int age) {
+		if (age >= 0 && age <= 120) stdAge = age;
+		else stdAge = 0;
+	}
+	void setGpa(double gpa) {
+		if (gpa >= 0 && gpa <= 4) stdGpa = gpa;
+		else stdGpa = 0;
+	}
 	
 	string getName() const {
-		return name;
-	}
-	
-	void setAge(int newAge) {
-		if (newAge >= 0 && newAge <= 120) age = newAge;
-	}
-	
-	void setGpa(double newGpa) {
-		if (newGpa >= 0 && newGpa <= 4) gpa = newGpa;
+		return stdName;
 	}
 	
 	int getAge() const {
-		return age;
+		return stdAge;
 	}
 	
 	double getGpa() const {
-		return gpa;
+		return stdGpa;
 	}
 };
 
 int main() {
+	StudentRecord student1("Toyse", 100, 3.95);
 	
-	StudentRecord studentOne("Toyse", 20, 5.4);
-	studentOne.getName();
-	studentOne.getAge();
-	studentOne.getGpa();
-	
-	cout << "Name: " << studentOne.getName() << endl;
-	cout << "Age: " << studentOne.getAge() << endl;
-	cout << "Gpa: " << studentOne.getGpa() << endl;
+	cout << "Name: " << student1.getName() << endl;
+	cout << "Age: " << student1.getAge() << endl;
+	cout << "Gpa: " << student1.getGpa();
 	
 	return 0;
-	
 }
